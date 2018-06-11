@@ -45,10 +45,16 @@ repositories {
         name = 'sponge'
         url = 'https://repo.spongepowered.org/maven'
     }
+    ivy {
+        url "http://download.nodecdn.net/containers/reforged/server/release"
+        layout "pattern", {
+            artifact "[organisation]/[revision]/[artifact].[ext]"
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    deobfProvided ':Pixelmon-1.12.2-6.3.1-server:6.3.1'
     compile ("org.spongepowered:spongeapi:${project.spongeAPIVersion}")
 }
 
