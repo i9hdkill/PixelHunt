@@ -1,7 +1,7 @@
 package com.xpgaming.PixelHunt;
 
 import com.pixelmonmod.pixelmon.enums.EnumNature;
-import com.pixelmonmod.pixelmon.enums.EnumPokemon;
+import com.pixelmonmod.pixelmon.enums.EnumSpecies;
 import com.xpgaming.PixelHunt.Enums.EnumItems;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.item.ItemType;
@@ -26,11 +26,11 @@ public class Utils {
         switch(slot) {
             case 1:
                 cancelTimers(1);
-                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                else Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                else Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 while(getExcludedPokemon().contains(Main.pokemon1)) {
-                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                    else Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                    else Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 }
                 Main.nature1 = randomEnum(EnumNature.class).toString();
                 Main.nature1b = randomEnum(EnumNature.class).toString();
@@ -57,11 +57,11 @@ public class Utils {
                 break;
             case 2:
                 cancelTimers(2);
-                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                else Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                else Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 while(getExcludedPokemon().contains(Main.pokemon2)) {
-                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                    else Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                    else Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 }
                 Main.nature2 = randomEnum(EnumNature.class).toString();
                 Main.nature2b = randomEnum(EnumNature.class).toString();
@@ -88,11 +88,11 @@ public class Utils {
                 break;
             case 3:
                 cancelTimers(3);
-                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                else Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                else Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 while(getExcludedPokemon().contains(Main.pokemon3)) {
-                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                    else Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                    else Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 }
                 Main.nature3 = randomEnum(EnumNature.class).toString();
                 Main.nature3b = randomEnum(EnumNature.class).toString();
@@ -119,11 +119,11 @@ public class Utils {
                 break;
             case 4:
                 cancelTimers(4);
-                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                else Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                else Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 while(getExcludedPokemon().contains(Main.pokemon4)) {
-                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-                    else Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+                    if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+                    else Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
                 }
                 Main.nature4 = randomEnum(EnumNature.class).toString();
                 Main.nature4b = randomEnum(EnumNature.class).toString();
@@ -339,11 +339,11 @@ public class Utils {
 
     public void initialisePokemon() {
         cancelTimers(0);
-        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-        else Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+        else Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         while(getExcludedPokemon().contains(Main.pokemon1)) {
-            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-            else Main.pokemon1 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+            else Main.pokemon1 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         }
         Main.nature1 = randomEnum(EnumNature.class).toString();
         Main.nature1b = randomEnum(EnumNature.class).toString();
@@ -365,11 +365,11 @@ public class Utils {
         }
         else Main.pokemon1rc = randomRareCandy(0);
         startTimer(1);
-        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-        else Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+        else Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         while(getExcludedPokemon().contains(Main.pokemon2)) {
-            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-            else Main.pokemon2 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+            else Main.pokemon2 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         }
         Main.nature2 = randomEnum(EnumNature.class).toString();
         Main.nature2b = randomEnum(EnumNature.class).toString();
@@ -391,11 +391,11 @@ public class Utils {
         }
         else Main.pokemon2rc = randomRareCandy(0);
         startTimer(2);
-        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-        else Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+        else Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         while(getExcludedPokemon().contains(Main.pokemon3)) {
-            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-            else Main.pokemon3 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+            else Main.pokemon3 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         }
         Main.nature3 = randomEnum(EnumNature.class).toString();
         Main.nature3b = randomEnum(EnumNature.class).toString();
@@ -417,11 +417,11 @@ public class Utils {
         }
         else Main.pokemon3rc = randomRareCandy(0);
         startTimer(3);
-        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-        else Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+        if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+        else Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         while(getExcludedPokemon().contains(Main.pokemon4)) {
-            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(true).name);
-            else Main.pokemon4 = sanitisePokemon(EnumPokemon.randomPoke(false).name);
+            if(Config.getInstance().getConfig().getNode("pixelhunt","general","allow-legendaries").getBoolean()) Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(true).name);
+            else Main.pokemon4 = sanitisePokemon(EnumSpecies.randomPoke(false).name);
         }
         Main.nature4 = randomEnum(EnumNature.class).toString();
         Main.nature4b = randomEnum(EnumNature.class).toString();

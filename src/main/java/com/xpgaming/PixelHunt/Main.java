@@ -56,7 +56,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-@Plugin(id = Main.id, name = Main.name, version = "1.1.1",
+@Plugin(id = Main.id, name = Main.name, version = "1.1.2",
 		dependencies = {
 				@Dependency(id = "pixelmon")
 		})
@@ -177,7 +177,7 @@ public class Main {
 	public void onPixelmonMove(MoveEntityEvent event, @First Entity entity) {
 		if (pixelmonList.contains(entity)) {
 			EntityPixelmon pixelmon = (EntityPixelmon) entity;
-			if (pixelmon.isEntityAlive() && !pixelmon.isInBall && !pixelmon.hasOwner()) {
+			if (pixelmon.isEntityAlive() && !pixelmon.hasOwner()) {
 				entity.getWorld().spawnParticles(ParticleEffect.builder().type(ParticleTypes.MOBSPAWNER_FLAMES).build(), entity.getLocation().getPosition(), 3);
 			} else {
 				pixelmonList.remove(entity);

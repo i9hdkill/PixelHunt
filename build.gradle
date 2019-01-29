@@ -46,7 +46,8 @@ repositories {
         url = 'https://repo.spongepowered.org/maven'
     }
     ivy {
-        url "http://download.nodecdn.net/containers/reforged/server/release"
+        url "https://hexagonmc.eu/tmp"
+        //url "http://download.nodecdn.net/containers/reforged/server/release"
         layout "pattern", {
             artifact "[organisation]/[revision]/[artifact].[ext]"
         }
@@ -54,7 +55,7 @@ repositories {
 }
 
 dependencies {
-    deobfProvided ':Pixelmon-1.12.2-6.3.1-server:6.3.1'
+    deobfProvided ':Pixelmon-1.12.2-7.0.0-dev2317:'
     compile ("org.spongepowered:spongeapi:${project.spongeAPIVersion}")
 }
 
