@@ -3,6 +3,8 @@ build
 .idea
 .gradle
 *.iml
+.settings
+.gradle
 
 # Windows image file caches
 Thumbs.db

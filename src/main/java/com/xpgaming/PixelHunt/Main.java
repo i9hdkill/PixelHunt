@@ -1,7 +1,6 @@
 package com.xpgaming.PixelHunt;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
-import com.pixelmonmod.pixelmon.entities.pixelmon.Entity3HasStats;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.xpgaming.PixelHunt.Commands.Hunt;
 import com.xpgaming.PixelHunt.Commands.NewHunt;
@@ -11,8 +10,6 @@ import com.xpgaming.PixelHunt.Listeners.PixelmonSpawnListener;
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.hocon.HoconConfigurationLoader;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.command.args.GenericArguments;
 import org.spongepowered.api.command.source.ConsoleSource;
@@ -56,7 +53,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-@Plugin(id = Main.id, name = Main.name, version = "1.1.2",
+@Plugin(id = Main.id, name = Main.name, version = "1.1.3",
 		dependencies = {
 				@Dependency(id = "pixelmon")
 		})
@@ -90,8 +87,7 @@ public class Main {
 	public static Boolean initialised = false;
 	public static Boolean hasEconomy = false;
 	public static final String name = "PixelHunt";
-	private static final Logger log = LoggerFactory.getLogger(name);
-	
+
 	private static EconomyService economyService;
 	
 	@Listener
@@ -212,7 +208,7 @@ public class Main {
 		Sponge.getEventManager().registerListeners(this, new PixelmonSpawnListener());
 		Pixelmon.EVENT_BUS.register(new CaptureListener());
 		//Sponge.getCommandManager().register(this, newhunt, "newhunt", "nh");
-		consoleMsg("§f[§6xP//§f] §ePixelHunt - Loaded v1.1!");
+		consoleMsg("§f[§6xP//§f] §ePixelHunt - Loaded v1.1.3!");
 		consoleMsg("§f[§6xP//§f] §eBy Xenoyia with help from happyzlife, FrostEffects and XpanD!");
 	}
 
@@ -220,49 +216,49 @@ public class Main {
 		Sponge.getScheduler().getTasksByName("PixelHunt Announcement").forEach(t -> t.cancel());
 
 		if(Config.getInstance().getConfig().getNode("pixelhunt","general","global-msg").getBoolean() == true) {
-			Task task = Task.builder().execute(() -> {
+			Task.builder().execute(() -> {
 				if (!Sponge.getServer().getOnlinePlayers().isEmpty()) {
-					Text pokemon1 = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of("\u00A7b" + Main.pokemon1))
 							.onHover(TextActions.showText(Text.of("\u00A73Nature 1: \u00A7f" + Main.nature1 + "\n\u00A73Nature 2: \u00A7f" + Main.nature1b + "\n\u00A73Nature 3: \u00A7f" + Main.nature1c)))
 							.build();
-					Text pokemon1r = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of(" \u00A77[\u00A7eR\u00A77]"))
 							.onHover(TextActions.showText(Text.of("\u00A7dBalls: \u00A7f" + Main.pokemon1ballReward.getQuantity() + " " + Main.pokemon1ballName + "\n\u00A72Money: \u00A7f" + Main.pokemon1moneyReward + " coins\n\u00A7bRare Candies: \u00A7f" + Main.pokemon1rc.getQuantity())))// + "\n\u00A76IVs: \u00A7f" + IVUpgrade(EnumNature.natureFromString(Main.nature1).index))))
 							.build();
-					Text pokemon2 = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of("\u00A7b" + Main.pokemon2))
 							.onHover(TextActions.showText(Text.of("\u00A73Nature 1: \u00A7f" + Main.nature2 + "\n\u00A73Nature 2: \u00A7f" + Main.nature2b + "\n\u00A73Nature 3: \u00A7f" + Main.nature2c)))
 							.build();
-					Text pokemon2r = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of(" \u00A77[\u00A7eR\u00A77]"))
 							.onHover(TextActions.showText(Text.of("\u00A7dBalls: \u00A7f" + Main.pokemon2ballReward.getQuantity() + " " + Main.pokemon2ballName + "\n\u00A72Money: \u00A7f" + Main.pokemon2moneyReward + " coins\n\u00A7bRare Candies: \u00A7f" + Main.pokemon2rc.getQuantity())))// + "\n\u00A76IVs: \u00A7f" + IVUpgrade(EnumNature.natureFromString(Main.nature1).index))))
 							.build();
-					Text pokemon3 = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of("\u00A7b" + Main.pokemon3))
 							.onHover(TextActions.showText(Text.of("\u00A73Nature 1: \u00A7f" + Main.nature3 + "\n\u00A73Nature 2: \u00A7f" + Main.nature3b + "\n\u00A73Nature 3: \u00A7f" + Main.nature3c)))
 							.build();
-					Text pokemon3r = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of(" \u00A77[\u00A7eR\u00A77]"))
 							.onHover(TextActions.showText(Text.of("\u00A7dBalls: \u00A7f" + Main.pokemon3ballReward.getQuantity() + " " + Main.pokemon3ballName + "\n\u00A72Money: \u00A7f" + Main.pokemon3moneyReward + " coins\n\u00A7bRare Candies: \u00A7f" + Main.pokemon3rc.getQuantity())))// + "\n\u00A76IVs: \u00A7f" + IVUpgrade(EnumNature.natureFromString(Main.nature1).index))))
 							.build();
-					Text pokemon4 = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of("\u00A7b" + Main.pokemon4))
 							.onHover(TextActions.showText(Text.of("\u00A73Nature 1: \u00A7f" + Main.nature4 + "\n\u00A73Nature 2: \u00A7f" + Main.nature4b + "\n\u00A73Nature 3: \u00A7f" + Main.nature4c)))
 							.build();
-					Text pokemon4r = Text.builder()
+					Text.builder()
 							.color(TextColors.DARK_GRAY)
 							.append(Text.of(" \u00A77[\u00A7eR\u00A77]"))
 							.onHover(TextActions.showText(Text.of("\u00A7dBalls: \u00A7f" + Main.pokemon4ballReward.getQuantity() + " " + Main.pokemon4ballName + "\n\u00A72Money: \u00A7f" + Main.pokemon4moneyReward + " coins\n\u00A7bRare Candies: \u00A7f" + Main.pokemon4rc.getQuantity())))// + "\n\u00A76IVs: \u00A7f" + IVUpgrade(EnumNature.natureFromString(Main.nature1).index))))
 							.build();
-					Text comma = Text.of("\u00A7f, ");
+					Text.of("\u00A7f, ");
 					Text finalMessage1 = Text.builder()
 							.append(Text.of(Utils.prefix() + " " + Utils.lang("announcement-message")))
 							.build();

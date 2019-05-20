@@ -14,7 +14,6 @@ import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.text.format.TextColors;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,11 +80,8 @@ public class Hunt implements CommandExecutor {
     }
 
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-YY (HH:mm:ss)");
         LocalDateTime timeNow = LocalDateTime.now();
         List<Text> contents = new ArrayList<>();
-        String space = "            ";
-        Text indent = Text.of("");
         Text hover1 = Text.builder()
                 .color(TextColors.DARK_GRAY)
                 .append(Text.of("[\u00A7aNatures\u00A78]"))

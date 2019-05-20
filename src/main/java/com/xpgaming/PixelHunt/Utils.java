@@ -13,15 +13,23 @@ import java.math.BigDecimal;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Utils {
+
     private static Utils instance = new Utils();
+
     public static Utils getInstance() {
         return instance;
     }
+
     private static final SecureRandom random = new SecureRandom();
+
     public void randomisePokemon(int slot) {
         switch(slot) {
             case 1:
@@ -190,8 +198,6 @@ public class Utils {
         long seconds = fromTemp.until(to, ChronoUnit.SECONDS);
         fromTemp = fromTemp.plusSeconds(seconds);
 
-        long millis = fromTemp.until(to, ChronoUnit.MILLIS);
-
         return "\u00A7f"+days+"\u00A7bD \u00A7f"+hours+"\u00A7bH \u00A7f" + minutes + "\u00A7bM \u00A7f" + seconds + "\u00A7bS\u00A77";
 
     }
@@ -231,7 +237,7 @@ public class Utils {
                 if(min == max) hours = max;
                 date = date.plusHours(hours);
                 Main.pokemon1expiry = date;
-                Task task = Task.builder().execute(() -> {
+                Task.builder().execute(() -> {
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " The hunt for \u00A7a" + Main.pokemon1 + " \u00A7fhas ended!"));
                     randomisePokemon(slot);
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " New Pok\u00E9mon to hunt is \u00A7a" + Main.pokemon1 +"\u00A7f!"));
@@ -254,7 +260,7 @@ public class Utils {
                 date = date.plusHours(hours);
                 if(min == max) hours = max;
                 Main.pokemon2expiry = date;
-                Task task2 = Task.builder().execute(() -> {
+                Task.builder().execute(() -> {
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " The hunt for \u00A7a" + Main.pokemon2 + " \u00A7fhas ended!"));
                     randomisePokemon(slot);
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " New Pok\u00E9mon to hunt is \u00A7a" + Main.pokemon2+"\u00A7f!"));
@@ -276,7 +282,7 @@ public class Utils {
                 if(min == max) hours = max;
                 date = date.plusHours(hours);
                 Main.pokemon3expiry = date;
-                Task task3 = Task.builder().execute(() -> {
+                Task.builder().execute(() -> {
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " The hunt for \u00A7a" + Main.pokemon3 + " \u00A7fhas ended!"));
                     randomisePokemon(slot);
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " New Pok\u00E9mon to hunt is \u00A7a" + Main.pokemon3+"\u00A7f!"));
@@ -298,7 +304,7 @@ public class Utils {
                 if(min == max) hours = max;
                 date = date.plusHours(hours);
                 Main.pokemon4expiry = date;
-                Task task4 = Task.builder().execute(() -> {
+                Task.builder().execute(() -> {
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " The hunt for \u00A7a" + Main.pokemon4 + " \u00A7fhas ended!"));
                     randomisePokemon(slot);
                     Sponge.getServer().getBroadcastChannel().send(Text.of(prefix()+ " New Pok\u00E9mon to hunt is \u00A7a" + Main.pokemon4+"\u00A7f!"));
